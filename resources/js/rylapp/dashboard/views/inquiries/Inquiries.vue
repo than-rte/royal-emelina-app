@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    This is home
+    This is inquiries
   </v-container>
 </template>
 
@@ -8,7 +8,7 @@
 import { VContainer } from 'vuetify/lib'
 
 export default {
-    name: 'home',
+    name: 'inquiries',
 }
 </script>
 

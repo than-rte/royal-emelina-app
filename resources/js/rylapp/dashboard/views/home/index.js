@@ -1,3 +1,4 @@
+import inquiries from '../inquiries'
 import home from './Home'
 
 export default [{
@@ -7,4 +8,4 @@ export default [{
   name: 'dashboard.home',
   path: 'home',
   component: home,
-}]
+},]
