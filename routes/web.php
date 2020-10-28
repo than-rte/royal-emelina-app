@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 //Web
-Route::namespace('Web')->group(function () {
+Route::group(['namespace' => 'Web'],function () {
     //Pages
     Route::get('/', 'PagesController@index');
 
@@ -34,7 +34,6 @@ Route::namespace('Web')->group(function () {
 
     //Contacts
     Route::get('/contacts', 'PagesController@contacts');
-
 });
 
 
