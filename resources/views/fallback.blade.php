@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    GOOD MORNING M*THER F*CKERS
+                    404 Page Not Found
                 </div>
 
                 <div class="links">
