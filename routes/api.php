@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->group(function() {
+    Route::get('/venues', 'Api\VenuesController@index');
+    Route::post('/venues', 'Api\VenuesController@store');
+    Route::get('/venues/{venue}', 'Api\VenuesController@show');
+    Route::patch('/venues/{venue}', 'Api\VenuesController@update');
+    Route::delete('/venues/{venue}', 'Api\VenuesController@destroy');
 });
 
-Route::get('/venues', 'VenuesController@index');
-Route::post('/venues', 'VenuesController@store');
-Route::get('/venues/{venue}', 'VenuesController@show');
-Route::patch('/venues/{venue}', 'VenuesController@update');
-Route::delete('/venues/{venue}', 'VenuesController@destroy');
