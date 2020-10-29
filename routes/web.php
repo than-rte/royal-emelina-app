@@ -23,10 +23,10 @@ Route::group(['namespace' => 'Web'],function () {
     });
 
     //Menu
-    Route::group(['prefix' => 'menu'], function() {
-        Route::get('/', 'MenuController@index');
-        Route::get('{name}', 'MenuController@showMenu');
-        Route::get('{name}/{id}', 'MenuController@showMenuSet');
+    Route::group(['prefix' => 'foodsets'], function() {
+        Route::get('/', 'FoodsetsController@index');
+        Route::get('{name}', 'FoodsetsController@show');
+        Route::get('{name}/{id}', 'FoodsetsController@showSubset');
     });
 
     //About

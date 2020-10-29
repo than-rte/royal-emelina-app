@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Royal Emelina') }}</title>
+    <title>{{ $title ?? config('app.name') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -17,10 +17,17 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/vuetify-components.css') }}" rel="stylesheet">
     <script src="{{ asset('js/web/app.js') }}" defer></script>
+
+    <!-- External Styles -->
+    @yield('styles')
 </head>
 <body>
     <div id="app">
-        @yield('layout')
+        <!-- Page Content -->
+        @yield('content')
     </div>
+
+    <!-- External Scripts -->
+    @yield('scripts')
 </body>
 </html>

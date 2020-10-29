@@ -1,5 +1,26 @@
-@extends("layouts.desktop.home")
+@extends("layouts.web.app", [
+    'title' => 'Royal Emelina'
+])
 
 @section("content")
-    
+    <h1>This is index page</h1>
+    <a href="/venues">Venues</a> <br>
+    <a href="/venues/{{123}}">Venue Show</a> <br>
+    <a href="/events">Events</a> <br>
+    <a href="/events/{{123}}">Event Show</a> <br>
+    <a href="/events">Events</a> <br>
+    <a href="/events/{{123}}">Event Show</a> <br>
+    <a href="/enquiries/search">Show available venues</a> <br>
+    <a href="/foodsets">Food Sets</a> <br>
+    <a href="/foodsets/{{"for-kids"}}">Food Set Show</a> <br>
+    <a href="/foodsets/{{"for-kids"}}/{{1234}}">Food Subset Show</a> <br>
+    <a href="/about">About</a> <br>
+    <a href="/contacts">Contacts</a> <br>
+    <!-- Header Panel -->
+    <!-- Carousel -->
+    <!-- Page Introduction Text -->
+    <!-- Customer Reservation Form -->
+    <!-- Events Panel -->
+    <!-- Venue Panel -->
+    <!-- Footer Panel -->
 @endsection

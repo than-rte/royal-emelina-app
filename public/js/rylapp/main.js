@@ -216,6 +216,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'dashboard',
@@ -1524,12 +1526,19 @@ var render = function() {
                   [
                     _vm._v(" "),
                     _c(
-                      "v-list-item",
-                      { attrs: { link: "", to: "inquiries" } },
+                      "router-link",
+                      { attrs: { to: "/dashboard/inquiries" } },
                       [
                         _c(
-                          "v-list-item-content",
-                          [_c("v-list-item-title", [_vm._v("Pends")])],
+                          "v-list-item",
+                          { attrs: { link: "" } },
+                          [
+                            _c(
+                              "v-list-item-content",
+                              [_c("v-list-item-title", [_vm._v("Pends")])],
+                              1
+                            )
+                          ],
                           1
                         )
                       ],
@@ -59543,7 +59552,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "dashboard",
-  path: '/dashboard',
+  path: 'dashboard',
   component: _Main__WEBPACK_IMPORTED_MODULE_0__["default"],
   children: [].concat(_toConsumableArray(_dashboard_views_home_index__WEBPACK_IMPORTED_MODULE_1__["default"]), [_dashboard_views_inquiries_index__WEBPACK_IMPORTED_MODULE_2__["default"]])
 });
@@ -59805,7 +59814,18 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 var routes = [{
   path: '/',
   component: _App__WEBPACK_IMPORTED_MODULE_2__["default"],
-  children: [_dashboard_index__WEBPACK_IMPORTED_MODULE_3__["default"]]
+  children: [{
+    path: '/dashboard',
+    component: function component() {
+      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../dashboard/Main.vue */ "./resources/js/rylapp/dashboard/Main.vue"));
+    },
+    children: [{
+      path: 'inquiries',
+      component: function component() {
+        return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ../dashboard/views/inquiries/Inquiries.vue */ "./resources/js/rylapp/dashboard/views/inquiries/Inquiries.vue"));
+      }
+    }]
+  }]
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',

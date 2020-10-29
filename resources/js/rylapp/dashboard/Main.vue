@@ -27,11 +27,13 @@
                             <v-list-item-title>Inquiries</v-list-item-title>
                         </template>
 
-                        <v-list-item link to="inquiries"> 
-                            <v-list-item-content>
-                                <v-list-item-title>Pends</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
+                        <router-link to="/dashboard/inquiries">
+                            <v-list-item link> 
+                                <v-list-item-content>
+                                    <v-list-item-title>Pends</v-list-item-title>
+                                </v-list-item-content>
+                            </v-list-item>
+                        </router-link>
                      </v-list-group>
                      <!-- Events -->
                      <v-list-group

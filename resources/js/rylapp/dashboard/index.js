@@ -4,7 +4,7 @@ import inquiries from '../dashboard/views/inquiries/index'
 
 export default {
   name: "dashboard",
-  path: '/dashboard',
+  path: 'dashboard',
   component: Main,
   children: [
     ...home,
