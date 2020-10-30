@@ -15,3 +15,4 @@ const app = new Vue({
       ...globalcomponents,
     }
 })
+

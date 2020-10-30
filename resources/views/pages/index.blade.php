@@ -3,7 +3,10 @@
 ])
 
 @section("content")
-    <h1>This is index page</h1>
+    <h1 class="btn">
+        This is index page
+        <div class="btn-primary"></div>
+    </h1>
     <a href="/venues">Venues</a> <br>
     <a href="/venues/{{123}}">Venue Show</a> <br>
     <a href="/events">Events</a> <br>
