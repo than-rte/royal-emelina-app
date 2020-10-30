@@ -37,7 +37,7 @@ composer install -vvv
 npm install 
 ```
 
-:4. Compile JS code
+4. Compile JS code:
 
 Development:
 
