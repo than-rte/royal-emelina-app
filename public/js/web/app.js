@@ -72906,6 +72906,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   components: _objectSpread({}, _components_globalcomponents_js__WEBPACK_IMPORTED_MODULE_2__["default"])
 });
+console.log('hello world');
+console.log('anohter');
+console.log('anohter');
+console.log('anohter');
+console.log('anohter');
+console.log('anohter');
 
 /***/ }),
 
@@ -73053,8 +73059,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\DevProjects\web\royal-emelina-app\resources\js\web\app.js */"./resources/js/web/app.js");
-module.exports = __webpack_require__(/*! C:\DevProjects\web\royal-emelina-app\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\DevProjects\royal-emelina-app\resources\js\web\app.js */"./resources/js/web/app.js");
+module.exports = __webpack_require__(/*! C:\DevProjects\royal-emelina-app\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

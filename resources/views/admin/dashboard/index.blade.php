@@ -17,7 +17,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/vuetify-components.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-
     <script src="{{ asset('js/rylapp/main.js') }}" defer></script>
 </head>
 <body>

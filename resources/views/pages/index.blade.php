@@ -19,6 +19,8 @@
     <a href="/foodsets/{{"for-kids"}}/{{1234}}">Food Subset Show</a> <br>
     <a href="/about">About</a> <br>
     <a href="/contacts">Contacts</a> <br>
+
+    <img src="{{ asset('images/default.png') }}" alt="" srcset="">
     <!-- Header Panel -->
     <!-- Carousel -->
     <!-- Page Introduction Text -->

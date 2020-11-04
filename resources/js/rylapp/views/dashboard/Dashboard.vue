@@ -17,74 +17,69 @@
                 </v-toolbar>
 
                  <!-- Sidebar List -->
-                 <v-list>
-                     <!-- Inquiries -->
-                     <v-list-group
-                        :value="false"
-                        prepend-icon="mdi-account-circle"
-                     >
-                        <template v-slot:activator>
-                            <v-list-item-title>Inquiries</v-list-item-title>
-                        </template>
-
-                        <router-link to="/dashboard/inquiries">
-                            <v-list-item link> 
-                                <v-list-item-content>
-                                    <v-list-item-title>Pends</v-list-item-title>
-                                </v-list-item-content>
-                            </v-list-item>
+                 <v-list dense>
+                    <!-- Customers --> 
+                    <v-list-item-group>
+                        <v-subheader>CUSTOMERS</v-subheader>
+                   
+                        <!-- Enquiries -->
+                        <router-link to="/dashboard/enquiries">
+                        <v-list-item>
+                            <v-list-item-icon>
+                                <v-icon>mdi-mailbox-outline</v-icon>
+                            </v-list-item-icon>
+                            <v-list-item-content>
+                                <v-list-item-title>Enquiries</v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
                         </router-link>
-                     </v-list-group>
-                     <!-- Events -->
-                     <v-list-group
-                        :value="false"
-                        prepend-icon="mdi-account-circle"
-                     >
-                        <template v-slot:activator>
-                            <v-list-item-title>Events</v-list-item-title>
-                        </template>
-
-                        <v-list-item link>
+                        <!-- Books -->
+                        <v-subheader>BOOKS</v-subheader>
+                    
+                        <!-- Event Calendar -->
+                        <v-list-item to="/dashboard/event-calendar">
+                            <v-list-item-icon>
+                                <v-icon>mdi-calendar-month-outline</v-icon>
+                            </v-list-item-icon>
                             <v-list-item-content>
-                                <v-list-item-title>Calendar</v-list-item-title>
+                                <v-list-item-title>Event Calendar</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
-                        <v-list-item link>
-                            <v-list-item-content>
-                                <v-list-item-title>Events</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-                     </v-list-group>
-
-                     <!-- Venues -->
-                     <v-list-group
-                        :value="false"
-                        prepend-icon="mdi-account-circle"
-                     >
-                        <template v-slot:activator>
-                            <v-list-item-title>Venues</v-list-item-title>
-                        </template>
-                        <v-list-item link>
+                    
+                        <!-- General -->
+                        <v-subheader>GENERAL</v-subheader>
+                   
+                        <!-- Venues -->
+                        <v-list-item to="/dashboard/venues">
+                            <v-list-item-icon>
+                                <v-icon>mdi-city-variant-outline</v-icon>
+                            </v-list-item-icon>
                             <v-list-item-content>
                                 <v-list-item-title>Venues</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
-                     </v-list-group>
-                     <!-- Offers -->
-                      <v-list-group
-                        :value="false"
-                        prepend-icon="mdi-account-circle"
-                     >
-                        <template v-slot:activator>
-                            <v-list-item-title>Offers</v-list-item-title>
-                        </template>
-                        <v-list-item link>
+
+                        <!-- Events -->
+                        <v-list-item to="/dashboard/events">
+                            <v-list-item-icon>
+                                <v-icon>mdi-pencil-box-multiple-outline</v-icon>
+                            </v-list-item-icon>
+                            <v-list-item-content>
+                                <v-list-item-title>Events</v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
+
+                        <!-- Food Packages -->
+                        <v-list-item to="/dashboard/food-packages">
+                            <v-list-item-icon>
+                                <v-icon>mdi-food-apple-outline</v-icon>
+                            </v-list-item-icon>
                             <v-list-item-content>
                                 <v-list-item-title>Food Packages</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
-                     </v-list-group>
-                 </v-list>
+                    </v-list-item-group>
+                </v-list>
             </v-navigation-drawer>
 
             <!-- Main Section -->

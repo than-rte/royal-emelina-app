@@ -16,3 +16,11 @@ const app = new Vue({
     }
 })
 
+
+console.log('hello world');
+console.log('anohter');
+console.log('anohter');
+console.log('anohter');
+console.log('anohter');
+console.log('anohter');
+
