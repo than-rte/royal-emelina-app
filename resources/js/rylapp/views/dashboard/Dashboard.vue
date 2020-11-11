@@ -6,14 +6,16 @@
                 id="sidebar"
                 v-model="sidebar.expanded"
                 :width= "sidebar.width"
-                :height="sidebar.height"
+                class="sidebar-height"
                 dark
             >
                <!-- Sidebar Header -->
                <v-toolbar flat dark>
-                    <v-toolbar-title class="headline text-uppercase">
-                        <span class="font-weight-light">Royal Emelina</span>
-                    </v-toolbar-title>
+                   <router-link to="/dashboard" class="text-header">
+                        <v-toolbar-title class="headline text-uppercase">
+                            <span class="font-weight-light">Royal Emelina</span>
+                        </v-toolbar-title>
+                   </router-link>
                 </v-toolbar>
 
                  <!-- Sidebar List -->
@@ -23,8 +25,7 @@
                         <v-subheader>CUSTOMERS</v-subheader>
                    
                         <!-- Enquiries -->
-                        <router-link to="/dashboard/enquiries">
-                        <v-list-item>
+                        <v-list-item to="/dashboard/enquiries">
                             <v-list-item-icon>
                                 <v-icon>mdi-mailbox-outline</v-icon>
                             </v-list-item-icon>
@@ -32,7 +33,7 @@
                                 <v-list-item-title>Enquiries</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
-                        </router-link>
+
                         <!-- Books -->
                         <v-subheader>BOOKS</v-subheader>
                     
@@ -84,10 +85,74 @@
 
             <!-- Main Section -->
             <div id="main-content" class="d-flex flex-column">
-                <v-app-bar max-height="64">
-                    <v-app-bar-nav-icon @click ="sidebar.expanded = !sidebar.expanded"></v-app-bar-nav-icon>
-                    <v-toolbar-title>This is Title</v-toolbar-title>
-                </v-app-bar>
+                <v-toolbar max-height="64">
+                    <v-app-bar-nav-icon class="mr-3" @click ="sidebar.expanded = !sidebar.expanded"></v-app-bar-nav-icon>
+                    <div class="flex-1-1-auto d-flex align-center justify-end">
+                        <v-text-field
+                        label="Search..."
+                        single-line
+                        flat
+                        solo
+                        prepend-inner-icon="mdi-magnify"
+                        class="pt-7"
+                        background-color="#eee"
+                    ></v-text-field>     
+                    </div>
+                    <v-spacer></v-spacer>
+                    <v-menu
+                        transition="slide-x-transition"
+                        bottom
+                        right
+                        :offset-y="offset"
+                    >
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-btn
+                            v-bind="attrs"
+                            v-on="on"
+                            icon
+                            >
+                           
+                             <v-icon large>mdi-cog-outline</v-icon>
+                            </v-btn>
+                        </template>
+
+                        <v-card>
+                            <v-list>
+                                <v-list-item>
+                                    <v-list-item-avatar>
+                                    <img
+                                        src=""
+                                        alt=""
+                                    >
+                                    </v-list-item-avatar>
+
+                                    <v-list-item-content>
+                                        <v-list-item-title>Jonathan Rantael</v-list-item-title>
+                                        <v-list-item-subtitle>Administrator</v-list-item-subtitle>
+                                    </v-list-item-content>
+                                </v-list-item>
+                            </v-list>
+                            <v-divider></v-divider>
+
+                            <v-list>
+                                <v-list-item link>
+                                    <v-list-item-title>Edit Profile</v-list-item-title>
+                                </v-list-item>
+                            </v-list>
+
+                            <v-card-actions>
+                                <v-spacer></v-spacer>
+                                <v-btn
+                                    color="primary"
+                                    text
+                                    @click="menu = false"
+                                >
+                                    Logout
+                                </v-btn>
+                            </v-card-actions>
+                        </v-card>
+                    </v-menu>
+                </v-toolbar>
                 <v-main>
                     <router-view></router-view>
                 </v-main>
@@ -113,9 +178,10 @@ import  {
 export default {
     name: 'dashboard',
     data: () => ({
+    offset: true,
     sidebar: {
       expanded: true,
-      height: "100vh",
+      height: "1999px",
       width: "315px"
     },
     item: 0,
@@ -142,5 +208,22 @@ export default {
 <style lang="scss">
     #main-content {
         width: 100%;
+    }
+
+    .text-header {
+        color: #fff !important;
+        text-decoration: none;
+    }
+
+    .sidebar-height {
+        min-height: 100vh !important;
+    }
+
+    .v-text-field{
+      width: 400px;
+    }
+
+    .v-menu__content {
+        top: 70px !important;
     }
 </style>
