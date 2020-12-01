@@ -20,5 +20,9 @@ Route::middleware('auth:api')->group(function() {
     Route::get('/venues/{venue}', 'Api\VenuesController@show');
     Route::patch('/venues/{venue}', 'Api\VenuesController@update');
     Route::delete('/venues/{venue}', 'Api\VenuesController@destroy');
+
+    //Venue Image
+    Route::get('/venue-images', 'Api\VenueImagesController@index');
+    Route::post('/venue-images', 'Api\VenueImagesController@store');
 });
 

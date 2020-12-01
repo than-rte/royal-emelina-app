@@ -13,11 +13,11 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/',
-        component: App,
-        children: [
-            {
-                path: 'dashboard',
+        // path: '/',
+        // component: App,
+        // children: [
+        //     {
+                path: '/dashboard',
                 component: dashboard,
                 children: [
                     {
@@ -45,8 +45,8 @@ const routes = [
                         component: foodPackages
                     }
                 ]
-            }
-        ],
+        //     }
+        // ],
     }
 ]
 

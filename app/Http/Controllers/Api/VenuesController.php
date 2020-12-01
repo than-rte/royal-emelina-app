@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Model\User;
 use App\Model\Venue;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class VenuesController extends Controller {
 
@@ -14,6 +16,15 @@ class VenuesController extends Controller {
 
     public function index() {
         //Fetch all Details
+        $data = User::findOrFail(Auth::id())->venues;
+        if($data->isEmpty())
+        {
+            return response()->json([
+                'message' => 'no records'
+            ]);
+        }
+
+        return response()->json($data);
 
     }
 
@@ -25,24 +36,29 @@ class VenuesController extends Controller {
         $venue = Venue::findOrFail($params);
             //Pass
             //Fetch Single Venue
-            return $venue;
+            return response()->json($venue);
 
             //Fail
             //Return Error Response
     }
 
     public function store(Request $req) {
-        dd($req);
         //Get Request inputs and Validate
         $res_data = $req->validate([
             'name' => 'required',
             'description' => 'required',
             'min_people' => 'required',
-            'max_people' => 'required'
+            'max_people' => 'required',
+            'user_id' => 'required'
+            
         ]);
-
+            
         //Add new Venue
         Venue::create($res_data);
+
+        $data = User::findOrFail(Auth::id())->venues;
+       
+        return response()->json($data);
     }
 
     public function update(Request $req) {
@@ -54,7 +70,8 @@ class VenuesController extends Controller {
             'name' => 'required',
             'description' => 'required',
             'min_people' => 'required',
-            'max_people' => 'required'
+            'max_people' => 'required',
+            'user_id' => 'required'
         ]);
         
         //Update Venue

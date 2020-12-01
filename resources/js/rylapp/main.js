@@ -8,5 +8,8 @@ Vue.config.productionTip = false
 new Vue({
   vuetify,
   router,
-  render: h => h(App)
-}).$mount('#rylapp')
+  el: '#rylapp',
+  components: {
+    App
+  }
+})

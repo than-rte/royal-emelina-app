@@ -17,9 +17,8 @@ class CreateVenuesTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('name');
-            $table->string('slug');
             $table->mediumText('description');
-            $table->string('front_image')->nullable();
+            $table->string('front_image_url')->nullable();
             $table->integer('min_people');
             $table->integer('max_people');
             $table->integer('status')->default('1');

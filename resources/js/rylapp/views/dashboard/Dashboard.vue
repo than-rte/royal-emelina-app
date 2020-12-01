@@ -145,7 +145,7 @@
                                 <v-btn
                                     color="primary"
                                     text
-                                    @click="menu = false"
+                                    @click="logout()"
                                 >
                                     Logout
                                 </v-btn>
@@ -195,13 +195,19 @@ export default {
         { text: 'Backups', icon: 'mdi-cloud-upload' },
       ],
   }),
+  methods: {
+      logout() {
+          window.location.href = 'http://royalemelina.test/admin/login';
+      }
+  },
     watch: {
     //Sidebar Toggling
     "sidebar.expanded": function(newExpanded, oldExpanded) {
       if(newExpanded) this.sidebar.width = "315px"
       else this.sidebar.width = "0px"
     }
-  }
+  },
+
 }
 </script>
 

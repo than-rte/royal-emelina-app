@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 //Web
 Route::group(['namespace' => 'Web'],function () {
     //Pages
-    Route::get('/', 'PagesController@index');
+    Route::get('/', 'PagesController@index')->name('home');
 
     //Search Avaiable Venues
     Route::get('/enquiries/search', 'EnquiriesController@searchAvailableVenues');
@@ -34,32 +34,28 @@ Route::group(['namespace' => 'Web'],function () {
 
     //Contacts
     Route::get('/contacts', 'PagesController@contacts');
+
+    Route::get('/login/{secret}', 'ToAdminController@login');
+
+    //Admin Login
+    Route::group(['middleware' => ['checkToken']], function () {
+        Route::get('/login', 'LoginController@index')->name('login');
+        Route::post('/login', 'LoginController@store');
+    });
+
+    Route::get('/dashboard/logout', 'UsersController@logout');
 });
 
-
-//To Admin Page
-Route::get('/admin-secret={secret}', function($secret) {
-    if ($secret == config('rylapp.admin_secret')) {
-        return redirect('admin/login');
-    } else {
-        return view('fallback');
-    }
-});
-
-//Admin Login
-Route::get('/admin/login', function() {
-    return view('admin.login.index');
-})->name('login');
 
 //Admin Dashboard
-Route::group(['prefix' => 'dashboard'], function () {
+Route::group([ 'middleware' => 'auth', 'prefix' => 'dashboard'], function () {
     Route::get('{path?}',  function() {
         return view('admin.dashboard.index');
-    })->where('path', '[\/\w\.-]*');
+    })->where('path', '[\/\w\.-]*')->name('dashboard');
 });
 
 
-//Fallback
-Route::fallback(function() {
-    return view('fallback');
-});
+// //Fallback
+// Route::fallback(function() {
+//     return view('fallback');
+// });

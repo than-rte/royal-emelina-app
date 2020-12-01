@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->mediumText('description');
-            $table->string('front_image');
+            $table->string('front_image_url')->nullable();
             $table->integer('status')->default('1');
             $table->timestamps();
         });

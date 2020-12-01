@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class VenueImage extends Model
 {
     protected $fillable = [
-        'image'
+        'image_url', 'venue_id'
     ];
+
+    public function venue()
+    {
+        return $this->belongsTo(Venue::class);
+    }
 }

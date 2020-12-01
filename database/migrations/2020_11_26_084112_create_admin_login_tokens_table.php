@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVenueImages extends Migration
+class CreateAdminLoginTokensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateVenueImages extends Migration
      */
     public function up()
     {
-        Schema::create('venue_images', function (Blueprint $table) {
+        Schema::create('admin_login_tokens', function (Blueprint $table) {
             $table->id();
-            $table->integer('venue_id');
-            $table->string('image_url');
-            $table->timestamps();
+            $table->string('token');
         });
     }
 
@@ -28,6 +26,6 @@ class CreateVenueImages extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('venue_images');
+        Schema::dropIfExists('admin_login_tokens');
     }
 }

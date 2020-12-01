@@ -72854,26 +72854,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js/plugins/vuetify.js":
-/*!*****************************************!*\
-  !*** ./resources/js/plugins/vuetify.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuetify_lib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuetify/lib */ "./node_modules/vuetify/lib/index.js");
-
-
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify_lib__WEBPACK_IMPORTED_MODULE_1__["default"]);
-var opts = {};
-/* harmony default export */ __webpack_exports__["default"] = (new vuetify_lib__WEBPACK_IMPORTED_MODULE_1__["default"](opts));
-
-/***/ }),
-
 /***/ "./resources/js/web/app.js":
 /*!*********************************!*\
   !*** ./resources/js/web/app.js ***!
@@ -72885,8 +72865,7 @@ var opts = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _plugins_vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../plugins/vuetify */ "./resources/js/plugins/vuetify.js");
-/* harmony import */ var _components_globalcomponents_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/globalcomponents.js */ "./resources/js/web/components/globalcomponents.js");
+/* harmony import */ var _components_globalcomponents_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/globalcomponents.js */ "./resources/js/web/components/globalcomponents.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -72899,19 +72878,11 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/web/bootstrap.js"); //Vue
 
 
 
-
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.config.productionTip = false;
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  vuetify: _plugins_vuetify__WEBPACK_IMPORTED_MODULE_1__["default"],
   el: '#app',
-  components: _objectSpread({}, _components_globalcomponents_js__WEBPACK_IMPORTED_MODULE_2__["default"])
+  components: _objectSpread({}, _components_globalcomponents_js__WEBPACK_IMPORTED_MODULE_1__["default"])
 });
-console.log('hello world');
-console.log('anohter');
-console.log('anohter');
-console.log('anohter');
-console.log('anohter');
-console.log('anohter');
 
 /***/ }),
 
@@ -72919,13 +72890,8 @@ console.log('anohter');
 /*!***************************************!*\
   !*** ./resources/js/web/bootstrap.js ***!
   \***************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _sass_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../sass/app.scss */ "./resources/sass/app.scss");
-/* harmony import */ var _sass_app_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_app_scss__WEBPACK_IMPORTED_MODULE_0__);
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -73041,10 +73007,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/app.scss":
-/*!*********************************!*\
-  !*** ./resources/sass/app.scss ***!
-  \*********************************/
+/***/ "./resources/sass/rylapp/app.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/rylapp/app.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/web/app.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/web/app.scss ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -73053,14 +73030,15 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************************!*\
-  !*** multi ./resources/js/web/app.js ./resources/sass/app.scss ***!
-  \*****************************************************************/
+/*!******************************************************************************************************!*\
+  !*** multi ./resources/js/web/app.js ./resources/sass/web/app.scss ./resources/sass/rylapp/app.scss ***!
+  \******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! C:\DevProjects\royal-emelina-app\resources\js\web\app.js */"./resources/js/web/app.js");
-module.exports = __webpack_require__(/*! C:\DevProjects\royal-emelina-app\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\DevProjects\royal-emelina-app\resources\sass\web\app.scss */"./resources/sass/web/app.scss");
+module.exports = __webpack_require__(/*! C:\DevProjects\royal-emelina-app\resources\sass\rylapp\app.scss */"./resources/sass/rylapp/app.scss");
 
 
 /***/ })

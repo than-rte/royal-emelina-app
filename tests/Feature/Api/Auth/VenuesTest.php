@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 use App\Model\Venue;
-use App\User;
+use App\Model\User;
 
 class VenuesTest extends TestCase {
     use RefreshDatabase;
@@ -26,11 +26,12 @@ class VenuesTest extends TestCase {
 
     /** @test */
     public function auth_user_can_add_a_venue() {
-        // $this->withoutExceptionHandling();
-
-            $this->post('/api/venues', $this->test_data());
-
+        $this->withoutExceptionHandling();
+        
+        $this->post('/api/venues', $this->test_data());
         $venue = Venue::firstOrFail();
+
+        dd($venue);
 
         $this->assertCount(1, [$venue]);
 
@@ -58,7 +59,8 @@ class VenuesTest extends TestCase {
             'description' => 'Some text for Venue A', 
             'min_people' => 100,
             'max_people' => 120,
-            'api_token' => $this->user->api_token
+            'api_token' => $this->user->api_token,
+            'user_id' => $this->user->id
         ];
     }
 

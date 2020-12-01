@@ -14,14 +14,14 @@
     {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/vuetify-components.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="{{ asset('css/rylapp/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/vuetify-components.css') }}" rel="stylesheet">
     <script src="{{ asset('js/rylapp/main.js') }}" defer></script>
 </head>
 <body>
     <div id="rylapp">
-      
+        <App :user= {{ auth()->user() }} />      
     </div>
 </body>
 </html>

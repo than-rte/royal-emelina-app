@@ -14,9 +14,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/vuetify-components.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/web/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/web/app.js') }}" defer></script>
+    <script src="{{ asset('js/web/materialize.min.js') }}" defer></script>
 
     <!-- External Styles -->
     @yield('styles')

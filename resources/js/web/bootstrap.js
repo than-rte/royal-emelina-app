@@ -1,5 +1,3 @@
-import "../../sass/app.scss"
-
 window._ = require('lodash');
 
 window.axios = require('axios');
