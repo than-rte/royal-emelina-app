@@ -19,7 +19,7 @@
         <a class="carousel-item" href="#one!"><img src="./images/slider1.jpg"></a>
         <a class="carousel-item" href="#two!"><img src="./images/slider2.jpg"></a>
         <a class="carousel-item" href="#three!"><img src="./images/slider3.jpg"></a>
-        <a class="carousel-item" href="#four!"><img src="./images/slider4.jpg"></a>
+        <a class="carousel-item" href="#four!"><img src="./images/slider4.png"></a>
     </div>
 @endsection
 
