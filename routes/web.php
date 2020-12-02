@@ -55,7 +55,7 @@ Route::group([ 'middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 });
 
 
-// //Fallback
-// Route::fallback(function() {
-//     return view('fallback');
-// });
+//Fallback
+Route::fallback(function() {
+    return view('fallback');
+});
