@@ -29,6 +29,6 @@ class LoginController extends Controller
             'api_token' => hash('sha256', $token)
         ])->save();
         
-        return redirect()->route('dashboard');
+        return redirect()->route('admin');
     }
 }

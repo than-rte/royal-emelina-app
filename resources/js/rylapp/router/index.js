@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from '../App.vue'
-import dashboard from '../views/dashboard/Dashboard.vue'
-import home from '../views/dashboard/home/Home.vue'
+import admin from '../views/dashboard/Admin.vue'
+import dashboard from '../views/dashboard/dashboard/Dashboard.vue'
 import enquiries from '../views/dashboard/enquiries/Enquiries.vue'
-import eventCalendar from '../views/dashboard/event-calendar/EventCalendar.vue'
+import reservations from '../views/dashboard/reservations/Reservations.vue'
 import venues from '../views/dashboard/venues/Venues.vue'
 import events from '../views/dashboard/events/Events.vue'
 import foodPackages from '../views/dashboard/food-packages/FoodPackages.vue'
@@ -17,31 +17,40 @@ const routes = [
         // component: App,
         // children: [
         //     {
-                path: '/dashboard',
-                component: dashboard,
+                path: '/admin',
+                component: admin,
                 children: [
                     {
                         path: '',
-                        component: home
+                        redirect: {name: 'dashboard'}
                     },
                     {
-                        path: 'enquiries',
+                        name:'dashboard',
+                        path: 'dashboard',
+                        component: dashboard
+                    },
+                    {
+                        name: 'inquiries',
+                        path: 'inquiries',
                         component: enquiries
                     },
                     {
-                        path: 'event-calendar',
-                        component: eventCalendar
+                        name: 'reservations',
+                        path: 'reservations',
+                        component: reservations
                     },
-                    {
+                    {   
+                        name: 'venues',
                         path: 'venues',
                         component: venues
                     },
-                    {
+                    {   
+                        name: 'events',
                         path: 'events',
                         component: events
                     },
-                    {
-                        path: 'food-packages',
+                    {   name: 'food-packages',
+                        path: ' food-packages',
                         component: foodPackages
                     }
                 ]

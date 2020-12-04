@@ -48,10 +48,10 @@ Route::group(['namespace' => 'Web'],function () {
 
 
 //Admin Dashboard
-Route::group([ 'middleware' => 'auth', 'prefix' => 'dashboard'], function () {
+Route::group([ 'middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('{path?}',  function() {
         return view('admin.dashboard.index');
-    })->where('path', '[\/\w\.-]*')->name('dashboard');
+    })->where('path', '[\/\w\.-]*')->name('admin');
 });
 
 

@@ -7,82 +7,24 @@
                 v-model="sidebar.expanded"
                 :width= "sidebar.width"
                 class="sidebar-height sidebar-bg"
-                light
             >
                <!-- Sidebar Header -->
                <v-toolbar flat class="sidebar-bg mb-9" height="143px">
-                   <router-link to="/dashboard" class="text-header">
-                        <v-toolbar-title class="headline text-uppercase">
-                            <v-img
-                                max-height="150"
-                                max-width="250"
-                                src="http://royalemelina.test/images/logo.png"
-                        ></v-img>
-                        </v-toolbar-title>
-                   </router-link>
+                    <v-toolbar-title class="headline text-uppercase">
+                        <v-img
+                            max-height="150"
+                            max-width="250"
+                            src="http://royalemelina.test/images/logo.png"
+                    ></v-img>
+                    </v-toolbar-title>
                 </v-toolbar>
 
-                 <!-- Sidebar List -->
-                 <v-list dense>
-                    <!-- Customers --> 
+                <!-- nav links -->
+                <v-list>
                     <v-list-item-group>
-                        <v-subheader>CUSTOMERS</v-subheader>
-                   
-                        <!-- Enquiries -->
-                        <v-list-item to="/dashboard/enquiries">
-                            <v-list-item-icon>
-                                <v-icon color="orange darken-2">mdi-mailbox-outline</v-icon>
-                            </v-list-item-icon>
-                            <v-list-item-content>
-                                <v-list-item-title>Enquiries</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-
-                        <!-- Books -->
-                        <v-subheader>BOOKS</v-subheader>
-                    
-                        <!-- Event Calendar -->
-                        <v-list-item to="/dashboard/event-calendar">
-                            <v-list-item-icon>
-                                <v-icon color="orange darken-2">mdi-calendar-month-outline</v-icon>
-                            </v-list-item-icon>
-                            <v-list-item-content>
-                                <v-list-item-title>Event Calendar</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-                    
-                        <!-- General -->
-                        <v-subheader>GENERAL</v-subheader>
-                   
-                        <!-- Venues -->
-                        <v-list-item to="/dashboard/venues">
-                            <v-list-item-icon>
-                                <v-icon color="orange darken-2">mdi-city-variant-outline</v-icon>
-                            </v-list-item-icon>
-                            <v-list-item-content>
-                                <v-list-item-title>Venues</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-
-                        <!-- Events -->
-                        <v-list-item to="/dashboard/events">
-                            <v-list-item-icon>
-                                <v-icon  color="orange darken-2">mdi-pencil-box-multiple-outline</v-icon>
-                            </v-list-item-icon>
-                            <v-list-item-content>
-                                <v-list-item-title>Events</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-
-                        <!-- Food Packages -->
-                        <v-list-item to="/dashboard/food-packages">
-                            <v-list-item-icon>
-                                <v-icon  color="orange darken-2">mdi-food-apple-outline</v-icon>
-                            </v-list-item-icon>
-                            <v-list-item-content>
-                                <v-list-item-title>Food Packages</v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
+                         <div v-for="(navlink, i) in navLinks" :key="i">
+                             <NavLink :link="navlink" />
+                         </div>
                     </v-list-item-group>
                 </v-list>
             </v-navigation-drawer>
@@ -169,16 +111,60 @@ import  {
     VListItemIcon
 } from 'vuetify/lib'
 
+import NavLink from '../../components/NavLink'
+
 import axios from 'axios'
 
 export default {
-    name: 'dashboard',
+    name: 'admin',
+    components: {
+        NavLink
+    },
     data: () => ({
+    selectedLink: 0,
+    navLinks: [
+        {
+            text: 'Dashboard',
+            icon: 'mdi-home',
+            link: "dashboard",
+        },
+        {
+            text: 'Inquiries',
+            icon: 'mdi-mailbox',
+            link: "inquiries",
+        },
+        {
+            text: 'Reservations',
+            icon: 'mdi-calendar-month',
+            link: "reservations",
+        },
+        {
+            text: 'More',
+            icon: 'mdi-more',
+            linkItems: [
+                {
+                    text: 'Venues',
+                    icon: 'mdi-city-variant',
+                    link: 'venues'
+                },
+                {
+                    text: 'Events',
+                    icon: 'mdi-pencil-box-multiple',
+                    link: 'events'
+                },
+                {
+                    text: 'Food Packages',
+                    icon: 'mdi-food-apple',
+                    link: 'food-packages'
+                },
+            ],
+        },
+    ],
     offset: true,
     sidebar: {
       expanded: true,
       height: "1999px",
-      width: "315px"
+      width: "300px"
     },
     item: 0,
       items: [

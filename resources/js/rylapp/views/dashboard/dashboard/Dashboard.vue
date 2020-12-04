@@ -210,7 +210,7 @@
 import { VContainer } from 'vuetify/lib'
 
 export default {
-    name: 'home',
+    name: 'dashboard',
 }
 </script>
 
