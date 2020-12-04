@@ -17,7 +17,7 @@ class LoginController extends Controller
     public function store(request $req) 
     {
         $data = [
-            'name' => $req->username,
+            'username' => $req->username,
             'password' => $req->password
         ];
 

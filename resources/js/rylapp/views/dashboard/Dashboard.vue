@@ -6,14 +6,18 @@
                 id="sidebar"
                 v-model="sidebar.expanded"
                 :width= "sidebar.width"
-                class="sidebar-height"
-                dark
+                class="sidebar-height sidebar-bg"
+                light
             >
                <!-- Sidebar Header -->
-               <v-toolbar flat dark>
+               <v-toolbar flat class="sidebar-bg mb-9" height="143px">
                    <router-link to="/dashboard" class="text-header">
                         <v-toolbar-title class="headline text-uppercase">
-                            <span class="font-weight-light">Royal Emelina</span>
+                            <v-img
+                                max-height="150"
+                                max-width="250"
+                                src="http://royalemelina.test/images/logo.png"
+                        ></v-img>
                         </v-toolbar-title>
                    </router-link>
                 </v-toolbar>
@@ -27,7 +31,7 @@
                         <!-- Enquiries -->
                         <v-list-item to="/dashboard/enquiries">
                             <v-list-item-icon>
-                                <v-icon>mdi-mailbox-outline</v-icon>
+                                <v-icon color="orange darken-2">mdi-mailbox-outline</v-icon>
                             </v-list-item-icon>
                             <v-list-item-content>
                                 <v-list-item-title>Enquiries</v-list-item-title>
@@ -40,7 +44,7 @@
                         <!-- Event Calendar -->
                         <v-list-item to="/dashboard/event-calendar">
                             <v-list-item-icon>
-                                <v-icon>mdi-calendar-month-outline</v-icon>
+                                <v-icon color="orange darken-2">mdi-calendar-month-outline</v-icon>
                             </v-list-item-icon>
                             <v-list-item-content>
                                 <v-list-item-title>Event Calendar</v-list-item-title>
@@ -53,7 +57,7 @@
                         <!-- Venues -->
                         <v-list-item to="/dashboard/venues">
                             <v-list-item-icon>
-                                <v-icon>mdi-city-variant-outline</v-icon>
+                                <v-icon color="orange darken-2">mdi-city-variant-outline</v-icon>
                             </v-list-item-icon>
                             <v-list-item-content>
                                 <v-list-item-title>Venues</v-list-item-title>
@@ -63,7 +67,7 @@
                         <!-- Events -->
                         <v-list-item to="/dashboard/events">
                             <v-list-item-icon>
-                                <v-icon>mdi-pencil-box-multiple-outline</v-icon>
+                                <v-icon  color="orange darken-2">mdi-pencil-box-multiple-outline</v-icon>
                             </v-list-item-icon>
                             <v-list-item-content>
                                 <v-list-item-title>Events</v-list-item-title>
@@ -73,7 +77,7 @@
                         <!-- Food Packages -->
                         <v-list-item to="/dashboard/food-packages">
                             <v-list-item-icon>
-                                <v-icon>mdi-food-apple-outline</v-icon>
+                                <v-icon  color="orange darken-2">mdi-food-apple-outline</v-icon>
                             </v-list-item-icon>
                             <v-list-item-content>
                                 <v-list-item-title>Food Packages</v-list-item-title>
@@ -87,17 +91,7 @@
             <div id="main-content" class="d-flex flex-column">
                 <v-toolbar max-height="64">
                     <v-app-bar-nav-icon class="mr-3" @click ="sidebar.expanded = !sidebar.expanded"></v-app-bar-nav-icon>
-                    <div class="flex-1-1-auto d-flex align-center justify-end">
-                        <v-text-field
-                        label="Search..."
-                        single-line
-                        flat
-                        solo
-                        prepend-inner-icon="mdi-magnify"
-                        class="pt-7"
-                        background-color="#eee"
-                    ></v-text-field>     
-                    </div>
+                    
                     <v-spacer></v-spacer>
                     <v-menu
                         transition="slide-x-transition"
@@ -127,7 +121,7 @@
                                     </v-list-item-avatar>
 
                                     <v-list-item-content>
-                                        <v-list-item-title>Jonathan Rantael</v-list-item-title>
+                                        <v-list-item-title>{{ getUserFullName }}</v-list-item-title>
                                         <v-list-item-subtitle>Administrator</v-list-item-subtitle>
                                     </v-list-item-content>
                                 </v-list-item>
@@ -175,6 +169,8 @@ import  {
     VListItemIcon
 } from 'vuetify/lib'
 
+import axios from 'axios'
+
 export default {
     name: 'dashboard',
     data: () => ({
@@ -194,20 +190,38 @@ export default {
         { text: 'Uploads', icon: 'mdi-upload' },
         { text: 'Backups', icon: 'mdi-cloud-upload' },
       ],
+    user: {
+        fname: '',
+        lname: '',
+    },
   }),
-  methods: {
-      logout() {
-          window.location.href = 'http://royalemelina.test/admin/login';
+  computed: {
+      getUserFullName() {
+          return `${this.user.fname} ${this.user.lname}`
       }
   },
-    watch: {
+  methods: {
+      logout() {
+          axios.post('http://royalemelina.test/dashboard/logout')
+            .then(res => {
+                
+                localStorage.clear()
+
+                window.location.href = 'http://royalemelina.test'
+            })
+      }
+  },
+  watch: {
     //Sidebar Toggling
     "sidebar.expanded": function(newExpanded, oldExpanded) {
       if(newExpanded) this.sidebar.width = "315px"
       else this.sidebar.width = "0px"
     }
   },
-
+  mounted() {
+      this.user.fname = localStorage.getItem('first_name')
+      this.user.lname = localStorage.getItem('last_name')
+  }
 }
 </script>
 
@@ -231,5 +245,9 @@ export default {
 
     .v-menu__content {
         top: 70px !important;
+    }
+
+    .sidebar-bg {
+        background: #f9f6f7 !important;
     }
 </style>

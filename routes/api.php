@@ -15,14 +15,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->group(function() {
-    Route::get('/venues', 'Api\VenuesController@index');
-    Route::post('/venues', 'Api\VenuesController@store');
-    Route::get('/venues/{venue}', 'Api\VenuesController@show');
-    Route::patch('/venues/{venue}', 'Api\VenuesController@update');
-    Route::delete('/venues/{venue}', 'Api\VenuesController@destroy');
 
-    //Venue Image
-    Route::get('/venue-images', 'Api\VenueImagesController@index');
-    Route::post('/venue-images', 'Api\VenueImagesController@store');
+    //Venues
+    Route::group(['prefix' => 'venues'], function() {
+        Route::get('/', 'Api\VenuesController@index');
+        Route::post('/', 'Api\VenuesController@store');
+        Route::get('/{venue}', 'Api\VenuesController@show');
+        Route::patch('/{venue}', 'Api\VenuesController@update');
+        Route::delete('/{venue}', 'Api\VenuesController@destroy');
+    });
+
+    //Venue Images
+    Route::group(['prefix' => 'venue-image'], function() {
+        Route::get('/', 'Api\VenueImagesController@index');
+        Route::post('/', 'Api\VenueImagesController@store');
+    });
+    
 });
 

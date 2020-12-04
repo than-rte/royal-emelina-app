@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 $factory->define(AdminLoginToken::class, function (Faker $faker) {
     return [
-        'token' => Hash::make('password1234')
+        'token' => Hash::make('password1234'),
+        'user_id' => 1
     ];
 });

@@ -18,6 +18,8 @@ class CreateVenueImages extends Migration
             $table->integer('venue_id');
             $table->string('image_url');
             $table->timestamps();
+
+            $table->foreign('venue_id')->references('id')->on('venues');
         });
     }
 

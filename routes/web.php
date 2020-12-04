@@ -43,7 +43,7 @@ Route::group(['namespace' => 'Web'],function () {
         Route::post('/login', 'LoginController@store');
     });
 
-    Route::get('/dashboard/logout', 'UsersController@logout');
+    Route::post('/dashboard/logout', 'UsersController@logout');
 });
 
 

@@ -20,7 +20,10 @@ use Illuminate\Support\Facades\Hash;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'name' => 'admin',
+        'username' => $faker->userName(),
+        'fname' => $faker->firstName(),
+        'lname' => $faker->lastName(),
+        'email' => $faker->email(),
         'password' => Hash::make('admin'), // password
         'api_token' => Str::random(32)
     ];

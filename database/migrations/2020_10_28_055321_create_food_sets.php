@@ -16,10 +16,12 @@ class CreateFoodSets extends Migration
         Schema::create('food_sets', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->decimal('per_head_price', 8, 2);
-            $table->integer('status')->default('1');
+            $table->tinyInteger('status')->default('1');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

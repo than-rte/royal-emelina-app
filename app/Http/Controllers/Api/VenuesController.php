@@ -50,7 +50,6 @@ class VenuesController extends Controller {
             'min_people' => 'required',
             'max_people' => 'required',
             'user_id' => 'required'
-            
         ]);
             
         //Add new Venue

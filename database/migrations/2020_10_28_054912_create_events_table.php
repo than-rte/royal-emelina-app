@@ -16,12 +16,14 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('name');
-            $table->string('slug');
+            $table->string('name')->unique();
             $table->mediumText('description');
             $table->string('front_image_url')->nullable();
-            $table->integer('status')->default('1');
+            $table->tinyInteger('available')->default('1');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            
         });
     }
 

@@ -16,6 +16,9 @@ class CreateAdminLoginTokensTable extends Migration
         Schema::create('admin_login_tokens', function (Blueprint $table) {
             $table->id();
             $table->string('token');
+            $table->integer('user_id');
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

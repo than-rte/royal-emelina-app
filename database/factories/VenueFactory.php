@@ -10,6 +10,7 @@ $factory->define(Venue::class, function (Faker $faker) {
         'name' => $faker->word . " " . $faker->buildingNumber, 
         'description' => $faker->sentence($nbWords = 20, $variableNbWords = true), 
         'min_people' => $faker->numberBetween($min = 100, $max = 120),
-        'max_people' =>$faker->numberBetween($min = 150, $max = 300)
+        'max_people' => $faker->numberBetween($min = 150, $max = 300),
+        'user_id' => 1
     ];
 });

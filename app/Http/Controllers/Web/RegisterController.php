@@ -13,7 +13,7 @@ class RegisterController extends Controller
     public function store(Request $req)
     {
         User::create([
-            'name' => $req->username,
+            'username' => $req->username,
             'password' => Hash::make($req->password),
             'api_token' => Str::random(32),
         ]);

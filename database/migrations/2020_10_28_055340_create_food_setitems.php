@@ -16,8 +16,10 @@ class CreateFoodSetitems extends Migration
         Schema::create('food_setitems', function (Blueprint $table) {
             $table->id();
             $table->integer('foodset_id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->timestamps();
+
+            $table->foreign('foodset_id')->references('id')->on('food_sets');
         });
     }
 
