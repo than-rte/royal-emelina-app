@@ -7,6 +7,7 @@ Route::group(['namespace' => 'Web'],function () {
     //Pages
     Route::get('/', 'PagesController@index')->name('home');
 
+
     //Search Avaiable Venues
     Route::get('/enquiries/search', 'EnquiriesController@searchAvailableVenues');
 

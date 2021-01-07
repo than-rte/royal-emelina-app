@@ -60724,7 +60724,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\DevProjects\royal-emelina-app\resources\js\rylapp\main.js */"./resources/js/rylapp/main.js");
+module.exports = __webpack_require__(/*! C:\Users\ASUS\Downloads\cmder\royal-emelina-app\resources\js\rylapp\main.js */"./resources/js/rylapp/main.js");
 
 
 /***/ })
