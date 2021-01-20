@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-card>
       <v-card-title>
         Food Packages
@@ -22,13 +22,12 @@
 </template>
 
 <script>
-import { VContainer } from 'vuetify/lib'
+import { VContainer } from "vuetify/lib"
 
 export default {
-    name: 'food-packages',
+  name: "food-packages",
 }
 </script>
 
 <style>
-
 </style>

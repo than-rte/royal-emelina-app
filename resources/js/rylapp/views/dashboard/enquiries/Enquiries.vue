@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-card>
       <v-card-title>
         Enquiries
@@ -16,34 +16,33 @@
         :headers="headers"
         :items="enquiries"
         :search="search"
+        hide-default-footer
       ></v-data-table>
     </v-card>
   </v-container>
 </template>
 
 <script>
-import { VContainer } from 'vuetify/lib'
+import { VContainer } from "vuetify/lib"
 
 export default {
-    name: 'enquiries',
-    data () {
-      return {
-         headers: [
-          {
-            text: 'Date',
-            align: 'start',
-            value: 'date'
-          },
-          { text: 'Guest Name', value: 'name' }, 
-          { text: 'Messages', value:'messages' },
-          { text: '', value:'' },
-          
-        ]
-      }
+  name: "enquiries",
+  data() {
+    return {
+      headers: [
+        {
+          text: "Date",
+          align: "start",
+          value: "date",
+        },
+        { text: "Guest Name", value: "name" },
+        { text: "Messages", value: "messages" },
+        { text: "", value: "" },
+      ],
     }
+  },
 }
 </script>
 
 <style scoped>
-
 </style>

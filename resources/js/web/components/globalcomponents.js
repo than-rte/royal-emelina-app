@@ -1,5 +1,3 @@
 export default {
-
-    'navbar': require('./Navbar.vue').default
-    
+  navbar: require("./Navbar.vue").default
 }

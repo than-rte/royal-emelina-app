@@ -1,18 +1,12 @@
 <template>
-    <v-app-bar dark>
-        <v-toolbar-title>
-            Vuetify weeee
-        </v-toolbar-title>
-    </v-app-bar>
+  <div></div>
 </template>
 
 <script>
-import {VAppBar, VToolbarTitle} from 'vuetify/lib'
 export default {
-    name: "navbar"
+  name: "navbar",
 }
 </script>
 
 <style>
-
 </style>

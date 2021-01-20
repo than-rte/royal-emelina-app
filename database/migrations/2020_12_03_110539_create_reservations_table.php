@@ -36,7 +36,7 @@ class CreateReservationsTable extends Migration
             $table->foreign('venue_id')->references('id')->on('venues');
             $table->foreign('event_id')->references('id')->on('events');
             $table->foreign('foodset_id')->references('id')->on('food_sets');
-            
+
             $table->timestamps();
         });
     }

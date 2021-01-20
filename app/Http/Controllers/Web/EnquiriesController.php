@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class EnquiriesController extends Controller
 {
-    public function searchAvailableVenues() {
+    public function searchAvailableVenues()
+    {
         return view('pages.enquiries.search');
     }
 }

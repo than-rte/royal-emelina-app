@@ -7,6 +7,9 @@
     <main>
         <center>
             <h5 class="indigo-text">Please, login into your account</h5>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
             <div class="section"></div>
 
             <div class="container">
@@ -46,3 +49,24 @@
         <div class="section"></div>
     </main>
 @endsection
+
+{{-- @section('head_scripts')
+<script>
+let tok =document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+console.log(tok)
+let key = prompt("password");
+
+fetch('http://royalelemina.test/before-login', {
+    method: "POST",
+    headers: {
+        'Accept' : 'application/json',
+        'Content-Type': 'application/json',
+        'X-CSRF-TOKEN': tok
+    },
+    body: JSON.stringify({key})
+})
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .catch(err => console.log('aksdjhaskjdh'))
+</script>
+@endsection --}}

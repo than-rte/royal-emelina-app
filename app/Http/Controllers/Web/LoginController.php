@@ -9,26 +9,37 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function index() 
+    public function __construct()
     {
-        return view('admin.login.index');
+       
     }
 
-    public function store(request $req) 
+    public function index() 
     {
-        $data = [
-            'username' => $req->username,
-            'password' => $req->password
-        ];
+        if(Auth::check()) return redirect()->route('admin');
+        else return view('admin.login.index');
+    }
+
+    public function store(Request $req) 
+    {
+        $data = $req->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ]);
 
         $token = Str::random(60);
 
-        Auth::attempt($data);
-       
-        $req->user()->forceFill([
-            'api_token' => hash('sha256', $token)
-        ])->save();
-        
-        return redirect()->route('admin');
+        if(Auth::attempt($data)) 
+        {
+            $req->user()->forceFill([
+                'api_token' => hash('sha256', $token)
+            ])->save();
+            
+            return redirect()->route('admin');
+        } 
+        else
+        {
+            return redirect()->route('login');
+        } 
     }
 }

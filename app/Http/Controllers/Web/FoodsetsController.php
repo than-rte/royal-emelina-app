@@ -7,17 +7,19 @@ use Illuminate\Http\Request;
 
 class FoodsetsController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('pages.foodsets.index');
     }
 
-    public function show() {
+    public function show()
+    {
         return view('pages.foodsets.show');
     }
 
-    
-    public function showSubset() {
+
+    public function showSubset()
+    {
         return view('pages.foodsets.show_subset');
     }
-    
 }

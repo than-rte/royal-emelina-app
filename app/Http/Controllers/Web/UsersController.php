@@ -14,7 +14,7 @@ class UsersController extends Controller
         $this->middleware('auth');
     }
     public function logout(Request $req)
-    {    
+    {
         $req->user()->forceFill([
             'api_token' => ' '
         ])->save();

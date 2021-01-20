@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class FoodSet extends Model
 {
     protected $fillable = [
-        'name', 
+        'name',
         'per_head_price'
     ];
 }

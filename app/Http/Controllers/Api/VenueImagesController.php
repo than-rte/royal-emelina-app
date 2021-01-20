@@ -10,7 +10,8 @@ use Illuminate\Support\Collection;
 
 class VenueImagesController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
         //Auth only store, edit, delete
     }
@@ -19,8 +20,7 @@ class VenueImagesController extends Controller
     {
         $data = VenueImage::all();
 
-        if($data->isEmpty())
-        {
+        if ($data->isEmpty()) {
             return response()->json([
                 'message' => 'no records'
             ]);
@@ -30,8 +30,8 @@ class VenueImagesController extends Controller
     }
 
     public function store()
-    {  
-        
+    {
+
         // $data = $this->validateRequest();
 
         // $venue_image = VenueImage::create($data);
@@ -44,9 +44,8 @@ class VenueImagesController extends Controller
     }
 
     private function storeImage($venue_image)
-    {  
-        if (request()->hasFile('image_url'))
-        {   
+    {
+        if (request()->hasFile('image_url')) {
             //Get File name with extension
             // dd(request()->file('image_url')->getClientOriginalName());
 
@@ -88,14 +87,14 @@ class VenueImagesController extends Controller
     {
         $ext = $originalImage->getClientOriginalExtension();
 
-        if (preg_match('/jpg|jpeg/i',$ext))
-            $imageTmp=imagecreatefromjpeg($originalImage);
-        else if (preg_match('/png/i',$ext))
-            $imageTmp=imagecreatefrompng($originalImage);
-        else if (preg_match('/gif/i',$ext))
-            $imageTmp=imagecreatefromgif($originalImage);
-        else if (preg_match('/bmp/i',$ext))
-            $imageTmp=imagecreatefrombmp($originalImage);
+        if (preg_match('/jpg|jpeg/i', $ext))
+            $imageTmp = imagecreatefromjpeg($originalImage);
+        else if (preg_match('/png/i', $ext))
+            $imageTmp = imagecreatefrompng($originalImage);
+        else if (preg_match('/gif/i', $ext))
+            $imageTmp = imagecreatefromgif($originalImage);
+        else if (preg_match('/bmp/i', $ext))
+            $imageTmp = imagecreatefrombmp($originalImage);
         else
             return 0;
 

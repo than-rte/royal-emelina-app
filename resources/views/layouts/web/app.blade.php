@@ -17,9 +17,11 @@
     <link href="{{ asset('css/web/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/web/app.js') }}" defer></script>
     <script src="{{ asset('js/web/materialize.min.js') }}" defer></script>
+    
 
     <!-- External Styles -->
     @yield('styles')
+    @yield('head_scripts')
 </head>
 <body>
     <div id="app">
